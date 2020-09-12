@@ -235,8 +235,11 @@ Now print your results:
 **ContainerOp parameters include:**
 
 **name** - the name displayed for the component execution during runtime.
+
 **image** - image tag for the Docker container to be used.
+
 **pvolumes** - dictionary of paths and associated Persistent Volumes to be mounted to the container before execution.
+
 **arguments** - command to be run by the container at runtime.
 
 Run the next two cells to compile the pipeline and run it within an experiment. Click run to view your pipeline on the Kubeflow pipeline UI.
