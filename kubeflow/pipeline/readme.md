@@ -1,7 +1,5 @@
 # Building a Kubeflow Pipeline
 
-![](images/Logo_White.png)
-
 [Kubeflow Pipeline](https://www.kubeflow.org/docs/pipelines/overview/pipelines-overview/)  is a component of Kubeflow which helps to manage end-to-end machine learning workflow. It aims to reduce the complexity and time involved with training and deploying machine learning models at scale.
 
 In this example, we would be working on a supervised learning classification problem using an Artificial Neural network. The goal is to determine if a customer would churn/leave or not.
@@ -72,13 +70,21 @@ For this example we would be using **GCP** to build the pipeline. To hasten the 
 ### Step 2:
 Once you have followed the steps and deployed kubeflow on GCP, paste the link given in your browser to get access to the Kubeflow dashboard. 
 
-![](kubeflow/pipeline/images/1.PNG)
+![](images/1.PNG)
 
 Start by setting up a jupyter notebook through the Notebook Servers tab by following the steps below: 
 1. Click Notebook Servers in the left-hand panel of the Kubeflow UI.
 2. Click the **namespace** dropdown and choose the one that corresponds to your Kubeflow profile.
+
+![](images/2.PNG)
+
 3. Click **NEW SERVER**  at the top right corner of the Notebook Servers page to create a notebook server.
+
+![](images/3.PNG)
+
 4. Enter the details of your new server on the page that shows next.
+
+![](images/4.PNG)
 
         a. Give a name of your choice to the notebook server
         b. The namespace is automatically updated by kubeflow
@@ -101,27 +107,31 @@ The default is to create a new volume for your workspace with the following conf
 **Mount point**: /home/jovyan
 
 Alternatively, you can point the notebook server at an existing volume by specifying the name of the existing volume.
+
 8. Click **LAUNCH** and you should see a new Notebook server entry like below.
 
+![](images/5.PNG)
 
 ### Step 3:
 Once the server is set up, click **connect** for access to your jupyter notebook. Open up the terminal and clone the following repository on GitHub.
 
+![](images/6.PNG)
+
     $ git clone https://github.com/AdeloreSimiloluwa/Artificial-Neural-Network
 
-Open the file “Artificial Neural Networks Pipeline”. The data needed for this project has already been uploaded on git so you can proceed to run each cell in the notebook. Start by importing the libraries and restart the kernel. The next step is to import the data and preprocess.
+Open the file “[Artificial Neural Networks Pipeline](https://github.com/AdeloreSimiloluwa/Artificial-Neural-Network/blob/master/Artificial%20Neural%20Networks%20Pipeline%20(1).ipynb)”. The data needed for this project has already been uploaded on git so you can proceed to run each cell in the notebook. Start by importing the libraries and restart the kernel. The next step is to import the data and preprocess.
 
     !python -m pip install --user --upgrade pip
 
     !pip3 install google-cloud-bigquery==1.6.0 pandas==0.23.4 matplotlib==3.0.3 scipy==1.2.1 scikit-learn==0.22 tensorflow==2.0 keras==1.2.2 --user
 
 ### Step 4:
-Now installing the kubeflow pipeline SDK. The kubeflow pipeline SDK offers python packages that you can use to run your machine learning workflows. To install SDK, run this cell and restart your kernel.
+Now installing the kubeflow pipeline SDK. The [kubeflow pipeline SDK](https://www.kubeflow.org/docs/pipelines/sdk/sdk-overview/) offers python packages that you can use to run your machine learning workflows. To install SDK, run this cell and restart your kernel.
 
     !pip install -q kfp --upgrade --user
 
 ### Step 5:
-Create python functions for training, testing and prediction and convert them into containers with this function, func to container op.
+Create python functions for training, testing and prediction and convert them into containers with this function, [func to container op](https://kubeflow-pipelines.readthedocs.io/en/latest/source/kfp.components.html#kfp.components.func_to_container_op).
 
   **Training function:**
   
@@ -193,9 +203,9 @@ After this, you define the parameters that should go into the pipeline. In this 
     ):
 
 ### Step 7:
-Now we can define the pipeline components, compile and run it on the dashboard. With ContainerOp func we would define the components, order of operations  and dependencies of the pipeline.
+Now we can define the pipeline components, compile and run it on the dashboard. With [ContainerOp](https://kubeflow-pipelines.readthedocs.io/en/latest/source/kfp.dsl.html#kfp.dsl.ContainerOp) func we would define the components, order of operations  and dependencies of the pipeline.
 
-Here we create the training components and attach persistent volumes to be mounted to the container.
+Here we create the training components and attach [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) to be mounted to the container.
 
     # Define volume to share data between components.
     vop = dsl.VolumeOp(
@@ -224,10 +234,10 @@ Now print your results:
 
 **ContainerOp parameters include:**
 
-name - the name displayed for the component execution during runtime.
-image - image tag for the Docker container to be used.
-pvolumes - dictionary of paths and associated Persistent Volumes to be mounted to the container before execution.
-arguments - command to be run by the container at runtime.
+**name** - the name displayed for the component execution during runtime.
+**image** - image tag for the Docker container to be used.
+**pvolumes** - dictionary of paths and associated Persistent Volumes to be mounted to the container before execution.
+**arguments** - command to be run by the container at runtime.
 
 Run the next two cells to compile the pipeline and run it within an experiment. Click run to view your pipeline on the Kubeflow pipeline UI.
 
@@ -257,6 +267,7 @@ Run the next two cells to compile the pipeline and run it within an experiment. 
                                                       run_name=run_name, 
                                                       arguments=arguments)
 
+![](images/7.PNG)
 
 The components you defined in the notebook should be displayed on the UI.
 Once the components are done running you can check the logs for your prediction result. It would display the Churn rate for the index you provide, the level of confidence and the actual label for that index.
