@@ -5,7 +5,7 @@
 In this example, we would be working on a supervised learning classification problem using an Artificial Neural network. The goal is to determine if a customer would churn/leave or not.
 
 ### Step 1:
-The first step is to make sure you have successfully deployed kubeflow, all its dependencies and  have access to the dashboard. There are many ways to deploy kubeflow. It can be deployed on your system(MacOs, Windows, Linux) and on the cloud(GCP, AWS, IBM, Azure). The following links should guide on how to deploy kubeflow on different platforms:
+The first step is to make sure you have successfully deployed kubeflow, all its dependencies and  have access to the dashboard. There are many ways to deploy kubeflow. It can be deployed on your system([MacOs](https://www.kubeflow.org/docs/started/workstation/getting-started-macos/), [Windows](https://www.kubeflow.org/docs/started/workstation/getting-started-windows/), [Linux](https://www.kubeflow.org/docs/started/workstation/getting-started-linux/)) and on the cloud([GCP](https://www.kubeflow.org/docs/gke/), [AWS](https://www.kubeflow.org/docs/aws/), [IBM](https://www.kubeflow.org/docs/ibm/iks-e2e/), [Azure](https://www.kubeflow.org/docs/azure/)). The following links should guide on how to deploy kubeflow on different platforms:
 
     Deploy Kubeflow on Windows
     Deploy Kubeflow on MacOs
@@ -73,7 +73,7 @@ Once you have followed the steps and deployed kubeflow on GCP, paste the link gi
 ![](images/1.PNG)
 
 Start by setting up a jupyter notebook through the Notebook Servers tab by following the steps below: 
-1. Click Notebook Servers in the left-hand panel of the Kubeflow UI.
+1. Click **Notebook Servers** in the left-hand panel of the Kubeflow UI.
 2. Click the **namespace** dropdown and choose the one that corresponds to your Kubeflow profile.
 
 ![](images/2.PNG)
