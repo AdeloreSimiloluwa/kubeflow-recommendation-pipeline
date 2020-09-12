@@ -1,6 +1,8 @@
 # Building a Kubeflow Pipeline
 
-Kubeflow Pipeline is a component of Kubeflow which helps to manage end-to-end machine learning workflow. It aims to reduce the complexity and time involved with training and deploying machine learning models at scale.
+![](images/Logo_White.png)
+
+[Kubeflow Pipeline](https://www.kubeflow.org/docs/pipelines/overview/pipelines-overview/)  is a component of Kubeflow which helps to manage end-to-end machine learning workflow. It aims to reduce the complexity and time involved with training and deploying machine learning models at scale.
 
 In this example, we would be working on a supervised learning classification problem using an Artificial Neural network. The goal is to determine if a customer would churn/leave or not.
 
@@ -15,7 +17,7 @@ The first step is to make sure you have successfully deployed kubeflow, all its 
     Deploy Kubeflow on IBM
     Deploy Kubeflow on Azure
 
-For this example we would be using GCP to build the pipeline. To hasten the process we have put together the following steps for deploying Kubeflow on GCP.
+For this example we would be using **GCP** to build the pipeline. To hasten the process we have put together the following steps for deploying Kubeflow on GCP.
 
     1. Create a new project 
 
@@ -70,6 +72,7 @@ For this example we would be using GCP to build the pipeline. To hasten the proc
 ### Step 2:
 Once you have followed the steps and deployed kubeflow on GCP, paste the link given in your browser to get access to the Kubeflow dashboard. 
 
+![](kubeflow/pipeline/images/1.PNG)
 
 Start by setting up a jupyter notebook through the Notebook Servers tab by following the steps below: 
 1. Click Notebook Servers in the left-hand panel of the Kubeflow UI.
