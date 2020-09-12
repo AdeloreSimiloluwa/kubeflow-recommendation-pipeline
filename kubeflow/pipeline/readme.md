@@ -222,14 +222,14 @@ Here we create the training components and attach [persistent volumes](https://k
     churn_predict_container = predict_op(data_path, model_file, churn_rate) \
                          .add_pvolumes({data_path: churn_training_container.pvolume})
 
-Now print your results:
-    # Print the result of the prediction
-    churn_result_container = dsl.ContainerOp(
-        name="print_prediction",
-        image='gcr.io/kubeflow-images-public/tensorflow-2.1.0-notebook-cpu:1.0.0',
-        pvolumes={data_path: churn_predict_container.pvolume},
-        arguments=['cat', f'{data_path}/result.txt']
-    )
+    Now print your results:
+        # Print the result of the prediction
+        churn_result_container = dsl.ContainerOp(
+            name="print_prediction",
+            image='gcr.io/kubeflow-images-public/tensorflow-2.1.0-notebook-cpu:1.0.0',
+            pvolumes={data_path: churn_predict_container.pvolume},
+            arguments=['cat', f'{data_path}/result.txt']
+        )
 
 
 **ContainerOp parameters include:**
